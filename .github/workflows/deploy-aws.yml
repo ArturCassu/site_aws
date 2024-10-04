@@ -1,0 +1,20 @@
+name: Jekyll site CI
+
+on:
+  push:
+    branches: [ "main" ]
+  pull_request:
+    branches: [ "main" ]
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+
+    steps:
+    - name: Deploy EC2
+      run:
+        echo "${{secrets.KEY_EC2}}" >private_key && chmod 400 private_key
+        ssh -o StrictHostKeyCheckinh=no -i "private_key" ubuntu@ec2-54-210-210-71.compute-1.amazonaws.com"
+          cd /var/www/html/ &&
+          git pull & 
+          "
