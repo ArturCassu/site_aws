@@ -14,7 +14,7 @@ jobs:
     - name: Deploy EC2
       run:
         echo "${{secrets.KEY_EC2}}" >private_key && chmod 400 private_key
-        ssh -o StrictHostKeyCheckinh=no -i "private_key" ubuntu@ec2-54-210-210-71.compute-1.amazonaws.com"
+        ssh -o StrictHostKeyCheckinh=no -i "private_key" ubuntu@ec2-100-29-88-215.compute-1.amazonaws.com"
           cd /var/www/html/ &&
-          git pull & 
+          sudo git pull 
           "
